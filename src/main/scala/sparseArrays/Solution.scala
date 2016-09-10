@@ -37,20 +37,17 @@ Here, "aba" occurs twice, in the first and third string. The string "xzxb" occur
 object Solution extends App{
 
   val sc = new java.util.Scanner (System.in)
-  val strings = readString(sc.nextInt())
-  val queries = readString(sc.nextInt())
-  val results = for(q <- queries; s <- strings if(s.contains(q))) yield s
-  val nonOccurs = strings.filterNot(results.distinct.contains(_))
+  val strings = readString(sc.nextInt)
+  val queries = readString(sc.nextInt)
+  val queriesD = queries.distinct
+  val results = for(q <- queriesD; s <- strings if(s equals q)) yield q
+  val nonOccurs = queriesD.filterNot(results.distinct.contains(_))
   var resMapped = results.groupBy(_.toString) ++ nonOccurs.map(_ -> List())
 
-  for(s <- queries if(resMapped(s).length > 0)) println(resMapped(s).length)
-
-//  resMapped.map{
-//    case (k,v) => v.length
-//  }.foreach(println)
+  for(q <- queries) println(resMapped(q).length)
 
   def readString(n: Int): List[String] =
-    if(n > 0) sc.next() :: readString(n-1)
+    if(n > 0) sc.next.trim :: readString(n-1)
     else List()
 
 }
