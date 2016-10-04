@@ -52,7 +52,7 @@ object Solution extends App {
   val sc = new java.util.Scanner (System.in)
   val strings = readString(sc.nextInt)
 
-  val b  = Map('{' -> '}', '(' -> ')', '[' -> ']')
+  val b  = Map('{' -> '}', '(' -> ')', '[' -> ']').withDefaultValue(' ')
 
   val balanced = for {
     s <- strings
@@ -62,40 +62,42 @@ object Solution extends App {
   strings.foreach(s => if(balanced.contains(s)) println("YES") else println("NO"))
 
 
-
-
   def findClosing(s: String, tail: String, open: Char, z: Int): Int = {
 
     val h = tail.head
+    val closingChar = b(open)
 
+    //Pattern Matching on Var must be surrounded by backticks
     val indexAction = h match {
-      case open => z + 1
-      case ')' | '}' | ']' => z - 1
+      case `closingChar` => z - 1
+      case `open` => z + 1
       case _ => z
     }
 
-    if (tail.tail.isEmpty) -1 //ran out os chars and could not find a closing bracket
-    else if (b(open) == h && z == 0) s.indexOf(tail) // is the immediate closing bracket
+    //If is closing is the last Char or withing string
+    val closingOrLast = if(tail.tail.isEmpty) s.length -1 else s.indexOf(tail)
+
+    if (tail.tail.isEmpty && indexAction > 0) -1 //ran out os chars and could not find a closing bracket
+    else if (b(open) == h && indexAction == 0) closingOrLast // is the immediate closing bracket
     else findClosing(s, tail.tail, open, indexAction) //jump to next char but keep closing index for same open chars
 
   }
 
-
   def isBalanced(s: String): Boolean = {
 
-    val closing = findClosing(s, s.tail, s.head, 0)
+    val startingIndex = if(!s.isEmpty && b(s.head) != null) 1 else 0
+    val closingIndex = if(s.isEmpty || s.length == 1) 1 else findClosing(s, s.tail, s.head, startingIndex)
+    val isLastChar = s.length - 1 == closingIndex
 
-    if(closing == -1) false
-    else
 
-
-    //if -1 then unbalanced
-    //Tail can only have remaining chars if closing char if directly followed by open char
-
-    true
+    if(s.isEmpty) true
+    else if(s.length == 1) false
+    else if(!isLastChar && closingIndex == 1) isBalanced(s.substring(closingIndex+1))
+    else if(!isLastChar && closingIndex > 1) isBalanced(s.substring(0+1,closingIndex) + s.substring(closingIndex+1))
+    else if(isLastChar) isBalanced(s.substring(1,closingIndex))
+    else false
 
   }
-
 
 
   def readString(n: Int): List[String] =
