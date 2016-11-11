@@ -3,18 +3,26 @@ package algorithms.sorting.insertionsort
 /**
   * Created by thiago on 07/11/16.
   */
-object Solution extends App{
+object Solution extends App {
 
-  val arrSize = scanner.nextInt
+  val arrSize = args(0).toInt
   val arr = new Array[Int](arrSize)
-  val line = scanner.nextLine.trim.split(" ")
+  val line = args(0).trim.split(" ")
   for(i <- 0 to arrSize-1) arr(i) = line(i).toInt
   val input = arr(arrSize-1)
+  val list = for(i <- arrSize-1 to 0 by -1 if isUpdatable(i))
+                yield arr.map(_.toString).reduce(_ + " " + _)
 
-  for(i <- arrSize-1 to 0 by -1){
-    if(i > 0 && arr(i-1) > input) arr.update(i, arr(i-1))
-    else if(arr(i) != input) arr.update(i, input)
-    println (arr.map(_.toString).reduce(_ + " " + _))
+  list.foreach(println)
+
+  def isUpdatable(i: Int): Boolean = {
+    if(i > 0 && arr(i-1) > input){
+      arr.update(i, arr(i-1))
+      true
+    } else if(arr(i) != input && arr(i) > input){
+      arr.update(i, input)
+      true
+    } else false
   }
 
   def scanner = new java.util.Scanner (System.in)
