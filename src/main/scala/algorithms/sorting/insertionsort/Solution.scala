@@ -1,13 +1,17 @@
 package algorithms.sorting.insertionsort
 
+import java.util
+
 /**
   * Created by thiago on 07/11/16.
   */
-object Solution extends App {
+object Solution extends App {args
 
-  val arrSize = args(0).toInt
+  val sc = new java.util.Scanner (System.in)
+  val strings =  if (args.length > 0) args.toList else readString(2)
+  val arrSize = strings(0).toInt
   val arr = new Array[Int](arrSize)
-  val line = args(0).trim.split(" ")
+  val line = strings(1).trim.split(" ")
   for(i <- 0 to arrSize-1) arr(i) = line(i).toInt
   val input = arr(arrSize-1)
   val list = for(i <- arrSize-1 to 0 by -1 if isUpdatable(i))
@@ -25,6 +29,8 @@ object Solution extends App {
     } else false
   }
 
-  def scanner = new java.util.Scanner (System.in)
+  def readString(n: Int): List[String] =
+    if(n > 0) sc.nextLine().trim :: readString(n-1)
+    else List()
 
 }
