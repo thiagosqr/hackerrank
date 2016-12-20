@@ -5,16 +5,15 @@ package queues
   */
 class Queue {
 
-   private[this] var head: Node = EmptyNode
-   private[this] var tail: Node = EmptyNode
+   var head: Node = EmptyNode
+   var tail: Node = EmptyNode
 
    def add(e: String): Unit = {
      head match {
        case EmptyNode => {
-        head = NonEmptyNode(e,EmptyNode,EmptyNode)
+        head = NonEmptyNode(e,tail,EmptyNode)
        }
        case n: NonEmptyNode => {
-
          tail = if(tail.isEmpty) NonEmptyNode(e,EmptyNode,head)
                 else NonEmptyNode(e,EmptyNode,tail)
        }
@@ -22,13 +21,9 @@ class Queue {
    }
 
    def remove():String = {
-
      val data = head.data()
-
-
-
+     head = head.previous()
      data
-
    }
 
 }
