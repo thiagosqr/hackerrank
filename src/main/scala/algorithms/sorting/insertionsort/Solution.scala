@@ -5,7 +5,7 @@ import java.util
 /**
   * Created by thiago on 07/11/16.
   */
-object Solution extends App {args
+object Solution extends App {
 
   val sc = new java.util.Scanner (System.in)
   val strings =  if (args.length > 0) args.toList else readString(2)
