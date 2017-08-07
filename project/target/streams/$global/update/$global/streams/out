@@ -1,4 +1,4 @@
-[info] Updating {file:/Volumes/MacintoshHD/Users/thiago/workspaces/github/thiagosqr/hackerrank/project/}hackerrank-build...
+[info] Updating {file:/Users/thiago/workspaces/github/thiagosqr/hackerrank/project/}hackerrank-build...
 [debug] :: resolving dependencies :: default#hackerrank-build;0.1-SNAPSHOT
 [debug] 	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool]
 [debug] 	validate = true
@@ -16,7 +16,7 @@
 [debug] == resolving dependencies for default#hackerrank-build;0.1-SNAPSHOT [provided]
 [debug] == resolving dependencies default#hackerrank-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.4 [provided->default(compile)]
 [info] Resolving org.scala-lang#scala-library;2.10.4 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1e429dae
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7294fce5
 [debug] sbt-chain: module revision found in cache: org.scala-lang#scala-library;2.10.4
 [debug] 	found org.scala-lang#scala-library;2.10.4 in sbt-chain
 [debug] 	[2.10.4] org.scala-lang#scala-library;2.10.4
@@ -1766,19 +1766,19 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.8!apply-macro.jar
 [debug] 	[NOT REQUIRED] org.scala-lang#jline;2.10.4!jline.jar
 [debug] 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-[debug] :: resolution report :: resolve 2960ms :: artifacts dl 106ms
-[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT compile produced in /Volumes/MacintoshHD/Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-compile.xml
-[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT runtime produced in /Volumes/MacintoshHD/Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-runtime.xml
-[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT test produced in /Volumes/MacintoshHD/Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-test.xml
-[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT provided produced in /Volumes/MacintoshHD/Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-provided.xml
-[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT optional produced in /Volumes/MacintoshHD/Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-optional.xml
-[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT compile-internal produced in /Volumes/MacintoshHD/Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-compile-internal.xml
-[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT runtime-internal produced in /Volumes/MacintoshHD/Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-runtime-internal.xml
-[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT test-internal produced in /Volumes/MacintoshHD/Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-test-internal.xml
-[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT plugin produced in /Volumes/MacintoshHD/Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-plugin.xml
-[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT sources produced in /Volumes/MacintoshHD/Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-sources.xml
-[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT docs produced in /Volumes/MacintoshHD/Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-docs.xml
-[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT pom produced in /Volumes/MacintoshHD/Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-pom.xml
-[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT scala-tool produced in /Volumes/MacintoshHD/Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-scala-tool.xml
-[debug] 	resolve done (2960ms resolve - 106ms download)
+[debug] :: resolution report :: resolve 3341ms :: artifacts dl 102ms
+[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT compile produced in /Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-compile.xml
+[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT runtime produced in /Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-runtime.xml
+[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT test produced in /Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-test.xml
+[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT provided produced in /Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-provided.xml
+[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT optional produced in /Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-optional.xml
+[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT compile-internal produced in /Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-compile-internal.xml
+[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT runtime-internal produced in /Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-runtime-internal.xml
+[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT test-internal produced in /Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-test-internal.xml
+[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT plugin produced in /Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-plugin.xml
+[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT sources produced in /Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-sources.xml
+[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT docs produced in /Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-docs.xml
+[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT pom produced in /Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-pom.xml
+[debug] 	report for default#hackerrank-build;0.1-SNAPSHOT scala-tool produced in /Users/thiago/workspaces/github/thiagosqr/hackerrank/project/target/resolution-cache/reports/default-hackerrank-build-scala-tool.xml
+[debug] 	resolve done (3341ms resolve - 102ms download)
 [info] Done updating.
