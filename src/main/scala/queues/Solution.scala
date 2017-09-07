@@ -5,11 +5,11 @@ package queues
   */
 object Solution extends App {
 
-  val q = new Queue
+  val q = new Queue[String]
 
   val inputs = args.drop(1).map(_.split(" "))
   for(input <- inputs) yield input match {
-    case Array("1",b) => q.add(b)
+    case Array("1",b: String) => q.add(b)
     case Array("2") => if(!q.head.isEmpty) q.remove()
     case Array("3") => if(!q.head.isEmpty) println(q.head.data())
   }

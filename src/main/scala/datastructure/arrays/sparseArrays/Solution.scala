@@ -32,7 +32,7 @@ Sample Output
 0
 Explanation
 
-Here, "aba" occurs twice, in the first and third string. The string "xzxb" occurs once in the fourth string, and "ab" does not occur at all.
+Here, "aba" occurs twic e, in the first and third string. The string "xzxb" occurs once in the fourth string, and "ab" does not occur at all.
   */
 object Solution extends App{
 
