@@ -14,4 +14,5 @@ object Solution extends App {
     case Array("3") => if(!q.head.isEmpty) println(q.head.data())
   }
 
+
 }

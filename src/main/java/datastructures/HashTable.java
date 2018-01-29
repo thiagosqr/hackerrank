@@ -18,6 +18,16 @@ public class HashTable<V> {
         final int index = index(hash);
         final LinkedList<Object> bucket = data[index] == null? new LinkedList<>() : data[index];
 
+        for(Iterator<Object> it = bucket.iterator(); it.hasNext();){
+          Object o = it.next();
+
+          if(key.equalsIgnoreCase(o.toString())){
+            it.remove();
+            it.next();
+            it.remove();
+          }
+        }
+
         bucket.add(key);
         bucket.add(value);
         data[index] = bucket;
@@ -59,5 +69,17 @@ public class HashTable<V> {
 
             return null;
         }
+    }
+
+
+    public static void main(String[] args){
+
+      HashTable<String> h = new HashTable<>();
+      h.put("Hello", "World");
+      h.put("World", "Hello");
+      h.put("Hello", "World");
+
+      System.out.println(h.get("Hello"));
+
     }
 }

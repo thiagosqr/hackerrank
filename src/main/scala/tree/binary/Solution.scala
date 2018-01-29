@@ -1,5 +1,12 @@
 package tree.binary
 
-class Solution {
+object Solution extends App {
+
+//  val tree: BinaryTree[Int] = BinaryTree.makeIntegerBinTree
+//
+//  tree.add(1)
+
+
+
 
 }

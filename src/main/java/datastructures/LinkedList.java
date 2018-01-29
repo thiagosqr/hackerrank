@@ -1,99 +1,74 @@
 package datastructures;
 
-import java.util.HashSet;
-import java.util.Set;
+public class LinkedList {
 
-/**
- * Created by thiago on 17/07/17.
- */
-public class LinkedListCycle {
+  private int lenght;
+  private Node first;
+  private Node last;
 
-    static class Node{
+  class Node {
 
-        int data;
-        Node next;
+    private int data;
+    private Node next;
 
-        public Node(int data, Node next) {
-            this.data = data;
-            this.next = next;
-        }
-
+    public Node(int data, Node next) {
+      this.data = data;
+      this.next = next;
     }
 
-    private static Set<Integer> hashes = new HashSet<>();
+  }
 
-    private static Integer hash(Node node) {
-        if (node == null) {
-            return 0;
-        } else {
-            Integer hash = 5 * node.hashCode();
-            hash = hash * 13 + node.data;
-            return node.next != null ? hash * 13 + node.next.data : hash;
-        }
+  public void add(int el){
+
+    if(first == null){
+      first = new Node(el, last);
+    }else if(last == null){
+      final Node n = new Node(el, null);
+      first.next = n;
+      last = n;
+    }else{
+      final Node n = new Node(el, null);
+      last.next = n;
+      last = n;
     }
 
+    lenght++;
 
-    static boolean hasCycle(Node head) {
-
-        int loop = 0;
-
-        if(head == null || head.next == null){
-            return false;
-        }else{
-
-            Node fast = head;
-            Node slow = head;
-
-            while(true){
-
-                System.out.println(loop++);
-
-                slow = slow.next;
-
-                if(fast.next != null){
-                    fast = fast.next.next;
-                }else{
-                    return false;
-                }
-
-                if(slow == null || fast == null)
-                    return false;
-
-                if(slow == fast)
-                    return true;
-
-            }
-
-        }
-
-    }
+  }
 
 
-    public static void main(String[] args){
+  public void printall(){
 
-        Node th6 = new Node(55,null);
+    if(first != null){
 
-        Node th5 = new Node(55,th6);
+      Node el = first;
 
-        Node th4 = new Node(55,th5);
+      do{
 
-        Node rd = new Node(55,th4);
+        System.out.println(el.data);
 
-        Node nd = new Node(55,rd);
+        el = el.next;
 
-        Node st = new Node(101, nd);
-
-        Node head = new Node(22,st);
-
-        th6.next = head;
-
-        System.out.println(hasCycle(head));
+      }while(el != null);
 
 
     }
 
+  }
 
 
+  public static void main(String[] args){
 
+    LinkedList list = new LinkedList();
+
+    list.add(0);
+    list.add(1);
+    list.add(2);
+    list.add(3);
+
+    list.printall();
+
+
+  }
 
 }
