@@ -1,24 +1,39 @@
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 import java.util.function.Function;
 
 public class Test {
 
-  private int x = 0;
+  private int age;
+  private String name;
+
+  public Test(int age, String name) {
+    this.age = age;
+    this.name = name;
+  }
 
   public static void main(final String[] args) {
 
-      Test t = new Test();
+    Set<Test> set = new HashSet<>();
+    set.add(new Test(18,"John"));
+    set.add(new Test(17,"Mary"));
+    set.add(new Test(18,"Adam"));
 
-      System.out.println(t.x);
-      change(t);
-      System.out.println(t.x);
+    System.out.println(set.size());
 
   }
 
+  @Override public boolean equals(Object o) {
+    if (this == o)
+      return true;
+    if (o == null || getClass() != o.getClass())
+      return false;
+    Test test = (Test) o;
+    return age == test.age && Objects.equals(name, test.name);
+  }
 
-  public static void change(Test t){
-
-    t = new Test();
-    t.x = 1;
-
+  @Override public int hashCode() {
+    return Objects.hash(age, name);
   }
 }
