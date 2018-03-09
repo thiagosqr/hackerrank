@@ -20,12 +20,18 @@ public class Primality {
       if(i == 1){
         return "Not prime";
       }else{
-        for(int j = 2;j * j <= i;j++){
-          if(i % j == 0){
-            notPrime = true;
-            break;
-          }
+
+        if(i % Math.sqrt(i) == 0){
+          notPrime = true;
         }
+
+
+//        for(int j = 2;j * j <= i;j++){
+//          if(i % j == 0){
+//            notPrime = true;
+//            break;
+//          }
+//        }
         return notPrime? "Not prime":"Prime";
       }
     }).forEach(i -> System.out.println(i));

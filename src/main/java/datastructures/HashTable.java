@@ -2,79 +2,63 @@ package datastructures;
 
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Objects;
 
 /**
  * Created by thiago on 10/07/17.
  */
-public class HashTable<V> {
+public class HashTable<K,V> {
 
-    private LinkedList<Object>[] data = new LinkedList[100000];
+  private LinkedList[] data = new LinkedList[1000];
 
-    public HashTable(){
+  public HashTable(){
+  }
+
+  public V get(K key){
+    final Integer hash = hashKey(key);
+    final Integer i = index(hash);
+    final java.util.LinkedList<Object> bucket = data[i] != null?
+        data[i] : new LinkedList<>();
+    if(bucket.contains(key)){
+      int keyAt = bucket.indexOf(key);
+      return (V) bucket.get(keyAt+1);
+    }else{
+      return null;
     }
 
-    public void put( String key, V value){
-        final int hash = hash(key);
-        final int index = index(hash);
-        final LinkedList<Object> bucket = data[index] == null? new LinkedList<>() : data[index];
+  }
 
-        for(Iterator<Object> it = bucket.iterator(); it.hasNext();){
-          Object o = it.next();
+  public void put(K key, V val){
+    final Integer hash = hashKey(key);
+    final Integer i = index(hash);
+    final java.util.LinkedList<Object> bucket = data[i] != null?
+        data[i] : new LinkedList<>();
 
-          if(key.equalsIgnoreCase(o.toString())){
-            it.remove();
-            it.next();
-            it.remove();
-          }
-        }
-
-        bucket.add(key);
-        bucket.add(value);
-        data[index] = bucket;
-
+    if(bucket.contains(key)){
+      int keyAt = bucket.indexOf(key);
+      bucket.remove(keyAt+1);
+      bucket.remove(key);
     }
 
-    private int index(int i){
-        return i % data.length;
-    }
+    bucket.add(key);
+    bucket.add(val);
 
-    private int hash(String key){
+    data[i] = bucket;
 
-        int hash = 5;
-        for(int i = 0; i < key.length(); i++){
-            hash = hash * 13 + key.charAt(i);
-        }
+  }
 
-        return hash;
-    }
+  public Integer hashKey(K key){
+    return Objects.hashCode(key);
+  }
 
-
-    public V get(String key) {
-
-        final int hash = hash(key);
-        final int index = index(hash);
-        final LinkedList<Object> bucket = data[index] == null? new LinkedList<>() : data[index];
-
-        if(bucket.isEmpty()) {
-            return null;
-        }else{
-
-            for(Iterator<Object> it = bucket.iterator(); it.hasNext();){
-                Object o = it.next();
-
-                if(key.equalsIgnoreCase(o.toString())){
-                    return (V) it.next();
-                }
-            }
-
-            return null;
-        }
-    }
+  public Integer index(Integer hash){
+    return hash % data.length;
+  }
 
 
     public static void main(String[] args){
 
-      HashTable<String> h = new HashTable<>();
+      HashTable<String,String> h = new HashTable<>();
       h.put("Hello", "World");
       h.put("World", "Hello");
       h.put("Hello", "World");
